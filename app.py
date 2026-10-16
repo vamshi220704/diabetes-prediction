@@ -44,7 +44,8 @@ if st.button("Predict"):
 
     try:
         input_scaled = scaler.transform(input_data)
-        prediction = model.predict(input_scaled)
+        st.write("Debug prediction:", prediction[0])
+        st.write("Debug scaled inputs:", input_scaled)
 
         if prediction[0] == 1:
             st.warning("Model prediction: Higher likelihood of diabetes.")
