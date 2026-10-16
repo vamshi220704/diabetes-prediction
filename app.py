@@ -52,8 +52,7 @@ if st.button("Predict"):
             st.success("Model prediction: Lower likelihood of diabetes.")
 
         st.caption(
-            "This is an educational machine-learning prediction, "
-            "not a medical diagnosis."
+            "Diabetes Prediction System model."
         )
 
     except Exception as e:
