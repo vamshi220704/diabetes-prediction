@@ -43,24 +43,18 @@ if st.button("Predict"):
     ]])
 
   
+  
     try:
         input_scaled = scaler.transform(input_data)
-
-        # Make the prediction first
         prediction = model.predict(input_scaled)
 
-        # Show debug information
         st.write("Debug prediction:", prediction[0])
-        st.write("Debug scaled inputs:", input_scaled)
-
+        st.write("Debug probabilities:", model.predict_proba(input_scaled))
+        
         if prediction[0] == 1:
             st.warning("Model prediction: Higher likelihood of diabetes.")
         else:
             st.success("Model prediction: Lower likelihood of diabetes.")
-
-        st.caption(
-            "This is an educational model prediction, not a medical diagnosis."
-        )
 
     except Exception as e:
         st.error(f"Prediction failed: {e}")
