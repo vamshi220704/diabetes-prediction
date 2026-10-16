@@ -42,8 +42,14 @@ if st.button("Predict"):
         age
     ]])
 
+  
     try:
         input_scaled = scaler.transform(input_data)
+
+        # Make the prediction first
+        prediction = model.predict(input_scaled)
+
+        # Show debug information
         st.write("Debug prediction:", prediction[0])
         st.write("Debug scaled inputs:", input_scaled)
 
@@ -53,7 +59,7 @@ if st.button("Predict"):
             st.success("Model prediction: Lower likelihood of diabetes.")
 
         st.caption(
-            "Diabetes Prediction System model."
+            "This is an educational model prediction, not a medical diagnosis."
         )
 
     except Exception as e:
